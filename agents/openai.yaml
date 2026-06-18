@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPT Design Pro"
+  short_description: "Design-quality layer for polished PPT decks"
+  default_prompt: "Use $ppt-design-pro to create or improve a polished, editable PowerPoint deck with a clear story, visual system, and QA pass."
