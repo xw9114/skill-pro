@@ -36,6 +36,7 @@
 | Skill | 状态 | 解决的问题 | 入口 |
 |---|---|---|---|
 | `ppt-design-pro` | 可用 | 提升 PPT 的叙事、视觉、模板复用、可编辑性与 QA 质量 | [`SKILL.md`](./SKILL.md) |
+| `readme-design-pro` | 可用 | 基于仓库事实和参考图创建、重构、定位或审查 GitHub README | [`skills/readme-design-pro/SKILL.md`](./skills/readme-design-pro/SKILL.md) |
 
 ### 计划扩展
 
@@ -91,7 +92,7 @@
 
 ## 快速开始
 
-### 安装当前的 `ppt-design-pro`
+### 安装 `ppt-design-pro`
 
 PowerShell：
 
@@ -106,6 +107,24 @@ git -C "$HOME/.codex/skills/ppt-design-pro" pull
 ```
 
 安装或更新后，新开一个 Codex 线程，让 Skills 被重新扫描。
+
+### 安装 `readme-design-pro`
+
+先克隆 Skill 集合仓库，再把目标 Skill 复制到全局目录：
+
+```powershell
+$collection = "$HOME/codex-skills-collection"
+git clone "https://github.com/xw9114/ppt-design-pro.git" $collection
+New-Item -ItemType Directory -Force "$HOME/.codex/skills" | Out-Null
+Copy-Item -Recurse -Force "$collection/skills/readme-design-pro" "$HOME/.codex/skills/"
+```
+
+调用示例：
+
+```text
+使用 $readme-design-pro，参考我提供的截图重新设计这个仓库的 README。
+先读取仓库事实，不要虚构版本、许可证、下载量或支持平台；完成后检查 UTF-8、相对链接和 Markdown 格式。
+```
 
 ### 调用 Skill
 
@@ -165,7 +184,9 @@ flowchart LR
 4. 详细知识进入 `references/`，核心 `SKILL.md` 保持精炼。
 5. 用真实产物、日志、截图、测试和验证器证明它确实有效。
 
-## 当前 Skill：ppt-design-pro
+## 已收录 Skill 详情
+
+### ppt-design-pro
 
 `ppt-design-pro` 是仓库中的第一个 Skill，也是当前可直接安装的能力包。
 
@@ -186,6 +207,25 @@ flowchart LR
 | QA 检查表 | [`references/qa-checklist.md`](./references/qa-checklist.md) |
 | 界面元数据 | [`agents/openai.yaml`](./agents/openai.yaml) |
 
+### readme-design-pro
+
+`readme-design-pro` 把这套 README 改写过程沉淀为可复用工作流：
+
+- 先读取仓库、许可证、清单、文档和 Git 状态，再写内容
+- 从参考截图提取结构、节奏和组件，不复制对方项目事实
+- 根据单 Skill、Skill 集合、CLI、库或应用选择信息架构
+- 使用事实徽章、表格、Mermaid、代码块和折叠 FAQ
+- 支持仓库定位变化，例如从单项目演进为项目集合
+- 使用确定性脚本检查 UTF-8、代码围栏、相对链接和占位符
+- 默认只修改 README，不擅自提交或推送
+
+| 资源 | 文件 |
+|---|---|
+| Skill 主流程 | [`skills/readme-design-pro/SKILL.md`](./skills/readme-design-pro/SKILL.md) |
+| README 结构与组件模式 | [`skills/readme-design-pro/references/readme-patterns.md`](./skills/readme-design-pro/references/readme-patterns.md) |
+| README 检查脚本 | [`skills/readme-design-pro/scripts/check_readme.py`](./skills/readme-design-pro/scripts/check_readme.py) |
+| 界面元数据 | [`skills/readme-design-pro/agents/openai.yaml`](./skills/readme-design-pro/agents/openai.yaml) |
+
 ## 贡献一个新 Skill
 
 提交新 Skill 前，请确认：
@@ -204,7 +244,7 @@ flowchart LR
 <details>
 <summary><strong>这个仓库以后还只放 PPT Skill 吗？</strong></summary>
 
-不会。`ppt-design-pro` 是第一个 Skill，仓库将逐步扩展到文档、开发、数据分析、研究和其他专业工作流。
+不会。仓库目前已经包含 `ppt-design-pro` 和 `readme-design-pro`，后续将继续扩展到文档、开发、数据分析、研究和其他专业工作流。
 
 </details>
 

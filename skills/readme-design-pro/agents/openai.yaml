@@ -1,0 +1,4 @@
+interface:
+  display_name: "README Design Pro"
+  short_description: "Design and validate polished GitHub READMEs"
+  default_prompt: "Use $readme-design-pro to redesign this repository README from verified project facts and validate the result."
