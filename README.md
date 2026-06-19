@@ -37,6 +37,7 @@
 |---|---|---|---|
 | `ppt-design-pro` | 可用 | 提升 PPT 的叙事、视觉、模板复用、可编辑性与 QA 质量 | [`SKILL.md`](./SKILL.md) |
 | `readme-design-pro` | 可用 | 基于仓库事实和参考图创建、重构、定位或审查 GitHub README | [`skills/readme-design-pro/SKILL.md`](./skills/readme-design-pro/SKILL.md) |
+| `evaluate-math-modeling-paper` | 可用 | 依据权威竞赛规则对数学建模论文进行证据化评审、合规检查和可重复评分 | [`skills/evaluate-math-modeling-paper/SKILL.md`](./skills/evaluate-math-modeling-paper/SKILL.md) |
 
 ### 计划扩展
 
@@ -225,6 +226,25 @@ flowchart LR
 | README 结构与组件模式 | [`skills/readme-design-pro/references/readme-patterns.md`](./skills/readme-design-pro/references/readme-patterns.md) |
 | README 检查脚本 | [`skills/readme-design-pro/scripts/check_readme.py`](./skills/readme-design-pro/scripts/check_readme.py) |
 | 界面元数据 | [`skills/readme-design-pro/agents/openai.yaml`](./skills/readme-design-pro/agents/openai.yaml) |
+
+### evaluate-math-modeling-paper
+
+`evaluate-math-modeling-paper` 用于完整数学建模论文的内容质量评审与赛事规则核对：
+
+- 分开处理官方硬门槛、官方定性评审维度和 Skill 自身的综合量化权重
+- 每个分数、扣分和修改建议都必须关联论文或规则证据
+- 覆盖 CUMCM、COMAP MCM/ICM、IMMC、SIAM M3 和 GAIMME 等权威来源
+- 输出人工可读评审报告与机器可消费的评分 JSON
+- 使用确定性脚本校验评分结构并计算证据覆盖率和总分
+
+| 资源 | 文件 |
+|---|---|
+| Skill 主流程 | [`skills/evaluate-math-modeling-paper/SKILL.md`](./skills/evaluate-math-modeling-paper/SKILL.md) |
+| 综合评审量表 | [`skills/evaluate-math-modeling-paper/references/evaluation-rubric.md`](./skills/evaluate-math-modeling-paper/references/evaluation-rubric.md) |
+| 赛事规则画像 | [`skills/evaluate-math-modeling-paper/references/competition-profiles.md`](./skills/evaluate-math-modeling-paper/references/competition-profiles.md) |
+| 来源矩阵 | [`skills/evaluate-math-modeling-paper/references/source-matrix.md`](./skills/evaluate-math-modeling-paper/references/source-matrix.md) |
+| 输出契约 | [`skills/evaluate-math-modeling-paper/references/output-contract.md`](./skills/evaluate-math-modeling-paper/references/output-contract.md) |
+| 评分校验脚本 | [`skills/evaluate-math-modeling-paper/scripts/score_evaluation.py`](./skills/evaluate-math-modeling-paper/scripts/score_evaluation.py) |
 
 ## 贡献一个新 Skill
 

@@ -1,0 +1,187 @@
+{
+  "competition_profile": {
+    "profile_id": "cumcm-2026",
+    "competition": "CUMCM",
+    "year": 2026,
+    "rule_mode": "current_official"
+  },
+  "retrieval_date": "2026-06-19",
+  "sources": [
+    {
+      "id": "CUMCM-2026-FORMAT",
+      "title": "CUMCM 2026 论文格式",
+      "authority": "CUMCM",
+      "url": "https://www.mcm.edu.cn/html_cn/node/4cd596519c9eb9fbd866398f6df0caa3.html",
+      "category": "official_rule"
+    },
+    {
+      "id": "GAIMME-2E",
+      "title": "GAIMME 2nd Edition",
+      "authority": "SIAM",
+      "url": "https://www.siam.org/media/wwjd5o2k/gaimme-2nd-ed-final-online-viewing-color.pdf",
+      "category": "educational_rubric"
+    }
+  ],
+  "evidence_completeness": {
+    "paper": "complete",
+    "problem": "complete",
+    "results": "partial",
+    "code": "missing",
+    "attachments": "missing",
+    "notes": "测试错误输入。"
+  },
+  "official_compliance": {
+    "checks": [
+      {
+        "id": "anonymous",
+        "label": "匿名性",
+        "status": "WARN",
+        "rule_source_ids": [
+          "CUMCM-2026-FORMAT"
+        ],
+        "evidence_refs": [
+          "paper:p1"
+        ],
+        "notes": "故意使用非法状态值。"
+      }
+    ]
+  },
+  "quality_blockers": [],
+  "dimension_scores": {
+    "summary_and_task_coverage": {
+      "weight": 10,
+      "rating": 4,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:p1"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "problem_understanding": {
+      "weight": 10,
+      "rating": 4,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-1"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "assumptions_data_variables_units": {
+      "weight": 10,
+      "rating": 3,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-2"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "model_and_mathematical_correctness": {
+      "weight": 20,
+      "rating": 4,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-3"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "computation_and_reproducibility": {
+      "weight": 10,
+      "rating": 2,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "results:summary-table"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "results_and_interpretation": {
+      "weight": 15,
+      "rating": 4,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-5"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "validation_sensitivity_robustness": {
+      "weight": 10,
+      "rating": 3,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-6"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "limitations_applicability_improvement": {
+      "weight": 5,
+      "rating": 3,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-7"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "writing_organization_figures_citations": {
+      "weight": 5,
+      "rating": 4,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-8"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    },
+    "innovation_and_insight": {
+      "weight": 5,
+      "rating": 2,
+      "rationale": "测试。",
+      "evidence_refs": [
+        "paper:sec-9"
+      ],
+      "source_ids": [
+        "GAIMME-2E"
+      ]
+    }
+  },
+  "confidence": {
+    "level": "medium",
+    "notes": "测试错误输入。",
+    "evidence_refs": [
+      "code:missing"
+    ]
+  },
+  "priority_fixes": [
+    {
+      "id": "fix-anonymous",
+      "priority": 1,
+      "title": "测试修复项",
+      "severity": "MAJOR",
+      "expected_gain": "测试。",
+      "evidence_refs": [
+        "paper:p1"
+      ],
+      "source_ids": [
+        "CUMCM-2026-FORMAT"
+      ],
+      "related_dimensions": [
+        "writing_organization_figures_citations"
+      ]
+    }
+  ]
+}
