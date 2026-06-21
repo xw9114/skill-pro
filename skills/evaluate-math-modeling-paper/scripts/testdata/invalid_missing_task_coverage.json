@@ -77,68 +77,21 @@
     "results": "partial",
     "code": "missing",
     "attachments": "missing",
-    "notes": "测试错误输入。"
+    "notes": "故意缺少 task_coverage。"
   },
-  "task_coverage": [
-    {
-      "task_id": "q1",
-      "task_label": "任务一",
-      "status": "validated",
-      "problem_ref": "problem:q1",
-      "paper_refs": [
-        "paper:summary",
-        "paper:sec-4.1"
-      ],
-      "body_evidence_refs": [
-        "paper:sec-4.1",
-        "results:table-q1"
-      ],
-      "validation_evidence_refs": [
-        "paper:sec-5.1-validation",
-        "results:validation-table#q1"
-      ],
-      "evidence_refs": [
-        "paper:sec-4.1",
-        "results:table-q1",
-        "paper:sec-5.1-validation",
-        "results:validation-table#q1"
-      ],
-      "notes": "用于维持任务覆盖结构合法。"
-    },
-    {
-      "task_id": "q2",
-      "task_label": "任务二",
-      "status": "evidenced",
-      "problem_ref": "problem:q2",
-      "paper_refs": [
-        "paper:summary",
-        "paper:sec-4.2"
-      ],
-      "body_evidence_refs": [
-        "paper:sec-4.2",
-        "results:table-q2"
-      ],
-      "validation_evidence_refs": [],
-      "evidence_refs": [
-        "paper:sec-4.2",
-        "results:table-q2"
-      ],
-      "notes": "用于维持任务覆盖结构合法。"
-    }
-  ],
   "official_compliance": {
     "checks": [
       {
         "id": "anonymous",
         "label": "匿名性",
-        "status": "WARN",
+        "status": "PASS",
         "rule_source_ids": [
           "CUMCM-2026-FORMAT"
         ],
         "evidence_refs": [
           "paper:p1"
         ],
-        "notes": "故意使用非法状态值。"
+        "notes": "首页未见身份信息。"
       }
     ]
   },
@@ -146,7 +99,7 @@
   "dimension_scores": {
     "summary_and_task_coverage": {
       "weight": 10,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:p1"
@@ -157,7 +110,7 @@
     },
     "problem_understanding": {
       "weight": 10,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:sec-1"
@@ -179,7 +132,7 @@
     },
     "model_and_mathematical_correctness": {
       "weight": 20,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:sec-3"
@@ -201,7 +154,7 @@
     },
     "results_and_interpretation": {
       "weight": 15,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:sec-5"
@@ -234,7 +187,7 @@
     },
     "writing_organization_figures_citations": {
       "weight": 5,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:sec-8"
@@ -257,26 +210,26 @@
   },
   "confidence": {
     "level": "medium",
-    "notes": "测试错误输入。",
+    "notes": "测试缺少 task_coverage。",
     "evidence_refs": [
-      "code:missing"
+      "results:summary-table"
     ]
   },
   "priority_fixes": [
     {
-      "id": "fix-anonymous",
+      "id": "fix-task-coverage",
       "priority": 1,
-      "title": "测试修复项",
+      "title": "补齐逐任务覆盖记录",
       "severity": "MAJOR",
-      "expected_gain": "测试。",
+      "expected_gain": "使逐任务证据覆盖可校验。",
       "evidence_refs": [
         "paper:p1"
       ],
       "source_ids": [
-        "CUMCM-2026-FORMAT"
+        "GAIMME-2E"
       ],
       "related_dimensions": [
-        "writing_organization_figures_citations"
+        "summary_and_task_coverage"
       ]
     }
   ]

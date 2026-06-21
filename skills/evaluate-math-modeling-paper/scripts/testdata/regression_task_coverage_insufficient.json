@@ -25,28 +25,6 @@
       "retrieved_at": "2026-06-19"
     },
     {
-      "id": "CUMCM-2025-AI",
-      "title": "全国大学生数学建模竞赛人工智能工具使用规定（2025年试行）",
-      "authority": "CUMCM",
-      "source_mode": "url",
-      "url": "https://www.mcm.edu.cn/html_cn/node/eebcfb6dc37fd2de9603dc16026fdf01.html",
-      "category": "official_rule",
-      "document_version": "2025-trial",
-      "applies_to_year": 2026,
-      "retrieved_at": "2026-06-19"
-    },
-    {
-      "id": "CUMCM-CHARTER",
-      "title": "CUMCM 章程",
-      "authority": "CUMCM",
-      "source_mode": "url",
-      "url": "https://www.mcm.edu.cn/html_cn/block/44e92058f537729c6b6a62a3662ee417.html",
-      "category": "official_guidance",
-      "document_version": "long-running",
-      "applies_to_year": "long-running",
-      "retrieved_at": "2026-06-19"
-    },
-    {
       "id": "GAIMME-2E",
       "title": "GAIMME 2nd Edition",
       "authority": "SIAM",
@@ -99,58 +77,35 @@
     "results": "partial",
     "code": "missing",
     "attachments": "missing",
-    "notes": "收到论文与题面，结果记录只有摘要表，未提供完整代码与附件。"
+    "notes": "用于回归测试逐任务覆盖不足时的确定性阻断。"
   },
   "task_coverage": [
     {
       "task_id": "q1",
       "task_label": "任务一",
-      "status": "validated",
+      "status": "mentioned",
       "problem_ref": "problem:q1",
       "paper_refs": [
-        "paper:summary",
-        "paper:sec-4.1"
+        "paper:summary"
       ],
-      "body_evidence_refs": [
-        "paper:sec-4.1",
-        "results:table-q1"
-      ],
-      "validation_evidence_refs": [
-        "paper:sec-5.1-validation",
-        "results:validation-table#q1"
-      ],
-      "evidence_refs": [
-        "paper:sec-4.1",
-        "results:table-q1",
-        "paper:sec-5.1-validation",
-        "results:validation-table#q1"
-      ],
-      "notes": "正文给出任务一的方法、结果和验证。"
+      "body_evidence_refs": [],
+      "validation_evidence_refs": [],
+      "evidence_refs": [],
+      "notes": "摘要提到任务一，但正文未形成回答。"
     },
     {
       "task_id": "q2",
       "task_label": "任务二",
-      "status": "validated",
+      "status": "answered",
       "problem_ref": "problem:q2",
       "paper_refs": [
         "paper:summary",
         "paper:sec-4.2"
       ],
-      "body_evidence_refs": [
-        "paper:sec-4.2",
-        "results:table-q2"
-      ],
-      "validation_evidence_refs": [
-        "paper:sec-5.2-robustness",
-        "results:robustness-table#q2"
-      ],
-      "evidence_refs": [
-        "paper:sec-4.2",
-        "results:table-q2",
-        "paper:sec-5.2-robustness",
-        "results:robustness-table#q2"
-      ],
-      "notes": "正文回答任务二，并给出稳健性讨论。"
+      "body_evidence_refs": [],
+      "validation_evidence_refs": [],
+      "evidence_refs": [],
+      "notes": "正文回答了任务二，但没有可追溯证据。"
     },
     {
       "task_id": "q3",
@@ -175,7 +130,7 @@
         "paper:sec-6-validation",
         "results:error-analysis#q3"
       ],
-      "notes": "正文给出任务三结论，并有结果回查。"
+      "notes": "任务三有正文证据和验证。"
     }
   ],
   "official_compliance": {
@@ -190,54 +145,27 @@
         "evidence_refs": [
           "paper:p1"
         ],
-        "notes": "首页未见队伍身份信息。"
-      },
-      {
-        "id": "ai-disclosure",
-        "label": "AI 披露",
-        "status": "FAIL",
-        "rule_source_ids": [
-          "CUMCM-2025-AI"
-        ],
-        "evidence_refs": [
-          "paper:appendix-ai"
-        ],
-        "notes": "论文未附 AI 使用披露。"
+        "notes": "首页未见身份信息。"
       }
     ]
   },
-  "quality_blockers": [
-    {
-      "id": "missing-validation",
-      "severity": "MAJOR",
-      "summary": "验证与敏感性分析不足。",
-      "dimension_ids": [
-        "validation_sensitivity_robustness"
-      ],
-      "evidence_refs": [
-        "paper:sec-5"
-      ],
-      "source_ids": [
-        "CUMCM-CHARTER"
-      ]
-    }
-  ],
+  "quality_blockers": [],
   "dimension_scores": {
     "summary_and_task_coverage": {
       "weight": 10,
-      "rating": 4,
-      "rationale": "摘要覆盖主要任务和关键结果，但方法亮点提炼还可以更集中。",
+      "rating": 3,
+      "rationale": "摘要提到了全部任务，但闭环不足。",
       "evidence_refs": [
-        "paper:p1"
+        "paper:summary"
       ],
       "source_ids": [
-        "CUMCM-CHARTER"
+        "GAIMME-2E"
       ]
     },
     "problem_understanding": {
       "weight": 10,
       "rating": 4,
-      "rationale": "任务拆解基本准确，约束关系交代较清楚。",
+      "rationale": "任务拆解基本准确。",
       "evidence_refs": [
         "paper:sec-1.2",
         "problem:q1"
@@ -249,10 +177,9 @@
     "assumptions_data_variables_units": {
       "weight": 10,
       "rating": 3,
-      "rationale": "有假设和符号说明，但单位一致性说明偏弱。",
+      "rationale": "基本假设齐全。",
       "evidence_refs": [
-        "paper:sec-2",
-        "paper:sec-3.1"
+        "paper:sec-2"
       ],
       "source_ids": [
         "GAIMME-2E"
@@ -261,21 +188,19 @@
     "model_and_mathematical_correctness": {
       "weight": 20,
       "rating": 4,
-      "rationale": "主模型结构完整，约束和求解逻辑基本一致。",
+      "rationale": "主模型结构完整。",
       "evidence_refs": [
-        "paper:sec-3.2",
-        "paper:sec-4.1"
+        "paper:sec-3.2"
       ],
       "source_ids": [
-        "CUMCM-CHARTER"
+        "GAIMME-2E"
       ]
     },
     "computation_and_reproducibility": {
       "weight": 10,
       "rating": 2,
-      "rationale": "只提供摘要表和局部参数，复现实操信息明显不足。",
+      "rationale": "缺少完整复现实操信息。",
       "evidence_refs": [
-        "paper:sec-4.3",
         "results:summary-table"
       ],
       "source_ids": [
@@ -284,23 +209,21 @@
     },
     "results_and_interpretation": {
       "weight": 15,
-      "rating": 4,
-      "rationale": "主要结果能回到题目要求，解释较完整。",
+      "rating": 5,
+      "rationale": "故意给高分，用于回归测试封顶。",
       "evidence_refs": [
-        "paper:sec-5.1",
-        "paper:sec-6"
+        "paper:sec-5.1"
       ],
       "source_ids": [
-        "CUMCM-CHARTER"
+        "GAIMME-2E"
       ]
     },
     "validation_sensitivity_robustness": {
       "weight": 10,
-      "rating": 3,
-      "rationale": "有基础误差讨论，但缺少系统敏感性分析。",
+      "rating": 5,
+      "rationale": "故意给高分，用于回归测试封顶。",
       "evidence_refs": [
-        "paper:sec-5",
-        "paper:sec-6.2"
+        "paper:sec-6"
       ],
       "source_ids": [
         "GAIMME-2E"
@@ -309,7 +232,7 @@
     "limitations_applicability_improvement": {
       "weight": 5,
       "rating": 3,
-      "rationale": "提到了局限与改进方向，但仍偏概括。",
+      "rationale": "说明较泛。",
       "evidence_refs": [
         "paper:sec-7"
       ],
@@ -320,19 +243,18 @@
     "writing_organization_figures_citations": {
       "weight": 5,
       "rating": 4,
-      "rationale": "整体组织清楚，图表服务主要论证，引用基本规范。",
+      "rationale": "结构基本清楚。",
       "evidence_refs": [
-        "paper:p1",
         "paper:sec-8"
       ],
       "source_ids": [
-        "CUMCM-CHARTER"
+        "GAIMME-2E"
       ]
     },
     "innovation_and_insight": {
       "weight": 5,
       "rating": 2,
-      "rationale": "方法组合偏稳妥，创新性有限。",
+      "rationale": "创新性一般。",
       "evidence_refs": [
         "paper:sec-3.4"
       ],
@@ -343,45 +265,31 @@
   },
   "confidence": {
     "level": "medium",
-    "notes": "缺少完整代码、附件和全量结果，因此对可复现性只能做中等置信判断。",
+    "notes": "用于验证逐任务覆盖不足时的阻断和封顶。",
     "evidence_refs": [
-      "code:missing",
+      "paper:summary",
       "results:summary-table"
     ]
   },
   "priority_fixes": [
     {
-      "id": "fix-ai-disclosure",
+      "id": "fix-task-evidence",
       "priority": 1,
-      "title": "补齐 AI 使用披露",
-      "severity": "BLOCKER",
-      "expected_gain": "消除明确的官方合规阻断项。",
-      "evidence_refs": [
-        "paper:appendix-ai",
-        "rule:CUMCM-2025-AI"
-      ],
-      "source_ids": [
-        "CUMCM-2025-AI"
-      ],
-      "related_dimensions": [
-        "writing_organization_figures_citations"
-      ]
-    },
-    {
-      "id": "fix-validation-depth",
-      "priority": 2,
-      "title": "补强验证与敏感性分析",
+      "title": "把任务一和任务二补成正文证据闭环",
       "severity": "MAJOR",
-      "expected_gain": "提高结论可信度并减少审稿质疑。",
+      "expected_gain": "解除逐任务证据不足导致的质量阻断。",
       "evidence_refs": [
-        "paper:sec-5"
+        "paper:summary",
+        "paper:sec-4.2",
+        "problem:q1"
       ],
       "source_ids": [
-        "CUMCM-CHARTER"
+        "GAIMME-2E"
       ],
       "related_dimensions": [
-        "validation_sensitivity_robustness",
-        "computation_and_reproducibility"
+        "summary_and_task_coverage",
+        "results_and_interpretation",
+        "validation_sensitivity_robustness"
       ]
     }
   ]

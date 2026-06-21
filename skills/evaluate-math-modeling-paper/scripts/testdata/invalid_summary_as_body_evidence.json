@@ -52,17 +52,18 @@
       "notes": "测试题面完整。"
     },
     {
-      "id": "results-summary",
+      "id": "results-main",
       "kind": "results",
-      "status": "partial",
-      "path": "results-summary.json",
-      "notes": "只有摘要结果。"
+      "status": "complete",
+      "path": "results.json",
+      "notes": "提供了结果表。"
     },
     {
-      "id": "code-missing",
+      "id": "code-main",
       "kind": "code",
-      "status": "missing",
-      "notes": "未提供完整代码。"
+      "status": "partial",
+      "path": "src",
+      "notes": "提供了部分代码。"
     },
     {
       "id": "attachments-missing",
@@ -74,36 +75,29 @@
   "evidence_completeness": {
     "paper": "complete",
     "problem": "complete",
-    "results": "partial",
-    "code": "missing",
+    "results": "complete",
+    "code": "partial",
     "attachments": "missing",
-    "notes": "测试错误输入。"
+    "notes": "用于回归测试摘要不能冒充正文 evidence。"
   },
   "task_coverage": [
     {
       "task_id": "q1",
       "task_label": "任务一",
-      "status": "validated",
+      "status": "evidenced",
       "problem_ref": "problem:q1",
       "paper_refs": [
-        "paper:summary",
+        "paper:摘要",
         "paper:sec-4.1"
       ],
       "body_evidence_refs": [
-        "paper:sec-4.1",
-        "results:table-q1"
+        "paper:摘要"
       ],
-      "validation_evidence_refs": [
-        "paper:sec-5.1-validation",
-        "results:validation-table#q1"
-      ],
+      "validation_evidence_refs": [],
       "evidence_refs": [
-        "paper:sec-4.1",
-        "results:table-q1",
-        "paper:sec-5.1-validation",
-        "results:validation-table#q1"
+        "paper:摘要"
       ],
-      "notes": "用于维持任务覆盖结构合法。"
+      "notes": "故意把摘要定位当成正文 evidence。"
     },
     {
       "task_id": "q2",
@@ -123,7 +117,7 @@
         "paper:sec-4.2",
         "results:table-q2"
       ],
-      "notes": "用于维持任务覆盖结构合法。"
+      "notes": "任务二是正常的 evidenced。"
     }
   ],
   "official_compliance": {
@@ -131,14 +125,14 @@
       {
         "id": "anonymous",
         "label": "匿名性",
-        "status": "WARN",
+        "status": "PASS",
         "rule_source_ids": [
           "CUMCM-2026-FORMAT"
         ],
         "evidence_refs": [
           "paper:p1"
         ],
-        "notes": "故意使用非法状态值。"
+        "notes": "首页未见身份信息。"
       }
     ]
   },
@@ -146,7 +140,7 @@
   "dimension_scores": {
     "summary_and_task_coverage": {
       "weight": 10,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:p1"
@@ -190,10 +184,10 @@
     },
     "computation_and_reproducibility": {
       "weight": 10,
-      "rating": 2,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
-        "results:summary-table"
+        "results:table-q2"
       ],
       "source_ids": [
         "GAIMME-2E"
@@ -234,7 +228,7 @@
     },
     "writing_organization_figures_citations": {
       "weight": 5,
-      "rating": 4,
+      "rating": 3,
       "rationale": "测试。",
       "evidence_refs": [
         "paper:sec-8"
@@ -257,26 +251,28 @@
   },
   "confidence": {
     "level": "medium",
-    "notes": "测试错误输入。",
+    "notes": "用于验证摘要定位不能冒充正文 evidence。",
     "evidence_refs": [
-      "code:missing"
+      "paper:摘要"
     ]
   },
   "priority_fixes": [
     {
-      "id": "fix-anonymous",
+      "id": "fix-body-evidence",
       "priority": 1,
-      "title": "测试修复项",
+      "title": "把正文 evidence 改成真实正文定位",
       "severity": "MAJOR",
-      "expected_gain": "测试。",
+      "expected_gain": "让 evidenced 状态具备真实正文证据。",
       "evidence_refs": [
-        "paper:p1"
+        "paper:摘要",
+        "problem:q1"
       ],
       "source_ids": [
-        "CUMCM-2026-FORMAT"
+        "GAIMME-2E"
       ],
       "related_dimensions": [
-        "writing_organization_figures_citations"
+        "summary_and_task_coverage",
+        "results_and_interpretation"
       ]
     }
   ]

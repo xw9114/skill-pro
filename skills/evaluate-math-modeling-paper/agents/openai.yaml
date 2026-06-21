@@ -1,4 +1,4 @@
 interface:
   display_name: "数学建模论文评审"
   short_description: "依据公开规则证据化评审数学建模论文质量、合规性与优先修改项"
-  default_prompt: "使用 $evaluate-math-modeling-paper 对这篇数学建模论文做基于证据的赛事合规评审、综合评分与优先修改建议。"
+  default_prompt: "使用 $evaluate-math-modeling-paper 对完整数学建模论文做证据化合规评审和量化评分；若只有思路、局部结果或未完成草稿，请转用 $math-modeling-contest。"
