@@ -35,6 +35,7 @@
 
 | Skill | 状态 | 解决的问题 | 入口 |
 |---|---|---|---|
+| `1start-mathmodel` | 可用（依赖下游 Skill） | 启动完整数学建模竞赛流程，生成计划并串联分析、编程、绘图、写作和验收阶段 | [`skills/1start-mathmodel/SKILL.md`](./skills/1start-mathmodel/SKILL.md) |
 | `ppt-design-pro` | 可用 | 提升 PPT 的叙事、视觉、模板复用、可编辑性与 QA 质量 | [`skills/ppt-design-pro/SKILL.md`](./skills/ppt-design-pro/SKILL.md) |
 | `readme-design-pro` | 可用 | 基于仓库事实和参考图创建、重构、定位或审查 GitHub README | [`skills/readme-design-pro/SKILL.md`](./skills/readme-design-pro/SKILL.md) |
 | `evaluate-math-modeling-paper` | 可用 | 依据权威竞赛规则对数学建模论文进行证据化评审、合规检查和可重复评分 | [`skills/evaluate-math-modeling-paper/SKILL.md`](./skills/evaluate-math-modeling-paper/SKILL.md) |
@@ -102,7 +103,7 @@ $collection = "$HOME/codex-skills-collection"
 git clone "https://github.com/xw9114/skill-pro.git" $collection
 New-Item -ItemType Directory -Force "$HOME/.codex/skills" | Out-Null
 
-$skillName = "ppt-design-pro" # 也可改为 readme-design-pro 或 evaluate-math-modeling-paper
+$skillName = "ppt-design-pro" # 也可改为 1start-mathmodel、readme-design-pro 或 evaluate-math-modeling-paper
 Copy-Item -Recurse -Force "$collection/skills/$skillName" "$HOME/.codex/skills/"
 ```
 
@@ -182,6 +183,21 @@ flowchart LR
 
 ## 已收录 Skill 详情
 
+### 1start-mathmodel
+
+`1start-mathmodel` 是数学建模竞赛完整工作流的总控入口：
+
+- 收集赛制、工具、时间预算和交付目标等关键偏好
+- 生成整体方案与带状态门禁的阶段任务清单
+- 按顺序串联分析建模、编程可视化、DrawIO、Typst 写作与最终验收
+- 保持阶段职责隔离，前序 gate 未通过时不把后续阶段标记为完成
+
+该 Skill 依赖同级共享 `_references`，以及 `2analysis-modeling`、`3coding-visual`、`4drawio`、`5writing`、`6verity` 等下游 Skill；单独安装时需确保这些依赖已存在。
+
+| 资源 | 文件 |
+|---|---|
+| Skill 主流程 | [`skills/1start-mathmodel/SKILL.md`](./skills/1start-mathmodel/SKILL.md) |
+
 ### ppt-design-pro
 
 `ppt-design-pro` 是仓库中的第一个 Skill，也是当前可直接安装的能力包。
@@ -259,7 +275,7 @@ flowchart LR
 <details>
 <summary><strong>这个仓库以后还只放 PPT Skill 吗？</strong></summary>
 
-不会。仓库目前已经包含 `ppt-design-pro`、`readme-design-pro` 和 `evaluate-math-modeling-paper`，后续将继续扩展到文档、开发、数据分析、研究和其他专业工作流。
+不会。仓库目前已经包含 `1start-mathmodel`、`ppt-design-pro`、`readme-design-pro` 和 `evaluate-math-modeling-paper`，后续将继续扩展到文档、开发、数据分析、研究和其他专业工作流。
 
 </details>
 
