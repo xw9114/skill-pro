@@ -18,8 +18,11 @@ description: "启动并持续推进数学建模竞赛完整工作流。用于用
 7. 论文必须形成“问题是什么 -> 为什么这样建模 -> 模型怎么求解 -> 结果是否可信 -> 结论如何落地”的证据链；缺少任一核心环节时，不得把论文阶段判定为完成。
 
 需要领域规则时读取 `../_references/math_modeling_norms.md`。下游阶段必须按需完整读取各自的 `SKILL.md`。
+涉及跨阶段状态字段、Gate、回退重置、论文证据链和最终 PASS 判定时，统一读取 `../_references/workflow_contract.md`，并以该文件为单一真源；本文件只保留总控补充约束。
 
 ## 论文证据链标准
+
+具体字段语义、阻塞判定和最终 PASS 条件以 `../_references/workflow_contract.md` 为准；本节仅保留总控阶段需要反复强调的最小标准。
 
 在 `complete_solution` 或 `submission` 模式下，写作与验收阶段必须检查论文是否形成可追溯证据链，而不是只有公式、图表或结果摘要。正文至少覆盖：
 
@@ -121,6 +124,8 @@ description: "启动并持续推进数学建模竞赛完整工作流。用于用
 
 ## 统一状态语义
 
+以下仅保留总控视角摘要；若与共享契约出现重复或表述差异，以 `../_references/workflow_contract.md` 为准。
+
 ### `task_coverage`
 
 - `missing`：官方要求尚未进入契约。
@@ -142,6 +147,8 @@ description: "启动并持续推进数学建模竞赛完整工作流。用于用
 只有实际执行对应检查且证据仍与当前输入和契约一致时才能为 `true`。文件存在、旧报告 PASS 或人工推测都不能代替验证。任何权威输入、需求契约、模型结果、图表或论文正文变化后，受影响项必须重置为 `false`。
 
 ## Gate 规则
+
+以下 Gate 规则用于总控推进；跨阶段统一语义以 `../_references/workflow_contract.md` 为准。
 
 阶段状态：`pending / in_progress / passed / warned / failed / skipped`。
 
