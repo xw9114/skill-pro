@@ -32,6 +32,8 @@ SOURCE_CATEGORIES = {
     "user_provided_current_rule",
 }
 SOURCE_MODES = {"url", "user_file", "manual_note"}
+# _tmp_skill_verify 当前只直接覆盖 formal 路径和 BLOCKED_COMPLIANCE / BLOCKED_QUALITY。
+# preliminary、BLOCKED_COMPLIANCE_AND_QUALITY、REVIEWED 仅保留为兼容分支，不视为本轮已验证回灌语义。
 REVIEW_MODES = {"formal", "preliminary"}
 EVIDENCE_STATES = {"complete", "partial", "minimal", "missing", "unknown"}
 TASK_STATUSES = ("mentioned", "answered", "evidenced", "validated")

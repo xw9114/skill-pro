@@ -79,6 +79,8 @@
 
 `preliminary` 模式下不得输出 `final_score`；脚本会保留或生成 `provisional_score`。
 
+> 验证覆盖说明：`E:/codex/_tmp_skill_verify` 当前只直接覆盖了 `review_mode = formal` 的正式评审路径；`preliminary` 仍作为兼容枚举保留，但不应视为本轮已验证回灌语义。可运行 `scripts/verify_contract_boundary.py` 复核该边界；脚本只检查 `formal` 覆盖，不会把 `preliminary` 升级为已验证。
+
 `formal` 模式下，`evidence_completeness.paper` 和 `evidence_completeness.problem` 不能是 `missing` 或 `unknown`。
 
 ### 2. `competition_profile`
@@ -327,6 +329,13 @@
 - `BLOCKED_QUALITY`
 - `PRELIMINARY`
 - `REVIEWED`
+
+> 验证覆盖说明：`E:/codex/_tmp_skill_verify` 当前只直接产出了 `BLOCKED_COMPLIANCE` 与 `BLOCKED_QUALITY`。`PRELIMINARY`、`BLOCKED_COMPLIANCE_AND_QUALITY`、`REVIEWED` 仅作为兼容分支保留，未被本轮验证产物直接覆盖，不应视为已验证回灌语义。
+
+> 当前回归边界速记：
+> - `review_mode`：仅 `formal` 直接已验证；`preliminary` 仍是契约允许值，但只是兼容保留。
+> - `submission_blocked`：当前只直接验证了 `true`，且仅出现在 formal 的 `BLOCKED_COMPLIANCE` / `BLOCKED_QUALITY` 路径；`false` 以及由 `review_mode = preliminary` 触发的 `true` 仍未被 `_tmp_skill_verify` 直接覆盖。
+> - `overall_verdict`：仅 `BLOCKED_COMPLIANCE` / `BLOCKED_QUALITY` 直接已验证；`BLOCKED_COMPLIANCE_AND_QUALITY` / `PRELIMINARY` / `REVIEWED` 仍为兼容保留枚举。
 
 脚本不会原地改写输入文件；若需要落盘，调用方应使用重定向，或先写入临时文件后再替换目标 JSON。
 

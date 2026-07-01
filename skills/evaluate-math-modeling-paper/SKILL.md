@@ -20,6 +20,7 @@ description: "依据权威公开规则和用户提供的当前赛事要求，对
 3. 始终读取 `references/source-matrix.md`，使用稳定的来源 ID、版本和适用年份。
 4. 产出报告和 JSON 前读取 `references/output-contract.md`。
 5. 人工完成维度判断后，运行 `scripts/score_evaluation.py` 做确定性校验与计分。
+6. 仅核对兼容副本的“已验证 / 兼容保留”边界是否漂移时，运行 `scripts/verify_contract_boundary.py`；它只复核 `_tmp_skill_verify` 已覆盖分支，不扩大已验证语义。
 
 ## 输入要求
 
